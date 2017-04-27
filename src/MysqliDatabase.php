@@ -4,8 +4,8 @@ class MysqliDatabase {
   /**
    * Set up the database connection
    */
-  public function __construct(){
-    $this->connection = $this->connect('localhost', 'root', '', 'polly', true);
+  public function __construct($host, $user, $pass, $db, $persistant = true){
+    $this->connection = $this->connect($host, $user, $pass, $db, $persistant);
   }
 
   /**
@@ -152,12 +152,14 @@ class MysqliDatabase {
           $method = 'fetch_array';
           break;
       }
-
-      $results = array();
-      while($row = $result->$method()){
-        $results[] = $row;
+      if($method == 'assoc') {
+        $results = array();
+        while($row = $result->$method()){
+          $results[] = $row;
+        }
+      } else {
+          $results = $result->$method();
       }
-
       $result->$close_result();
       return $results;
     }
