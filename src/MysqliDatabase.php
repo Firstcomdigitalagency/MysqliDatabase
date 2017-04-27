@@ -1,7 +1,5 @@
 <?php
 
-namespace MysqliDatabase;
-
 class MysqliDatabase {
   /**
    * Set up the database connection
