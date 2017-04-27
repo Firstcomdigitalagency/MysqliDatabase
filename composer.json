@@ -1,0 +1,24 @@
+{
+    "name": "firstcom/mysqli",
+    "description": "mysqli class",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Firstcom Digital",
+            "email": "firstcomdigital@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8 || ^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MysqliDatabase\\": "src/"
+        }
+    }
+}
